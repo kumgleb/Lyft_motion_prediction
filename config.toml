@@ -27,7 +27,7 @@ betta = 0.1
 n_samples = 100
 n_channels = 128
 n_head = 256
-p_drop = 0.2
+p_drop = 0.5
 
 [raster_params]
 raster_size = [224, 224]
