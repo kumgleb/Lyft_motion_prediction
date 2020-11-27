@@ -1,6 +1,6 @@
-mode = 'train_sample'
+mode = 'train_full'
 
-models_checkpoint_path = 'None'
+models_checkpoint_path = '/gdrive/My Drive/Colab Notebooks/Competitions/Lyft Motion Prediction/models_pytorch/models'
 
 min_frame_future = 50
 
@@ -27,7 +27,7 @@ betta = 0.1
 n_samples = 100
 n_channels = 128
 n_head = 256
-p_drop = 0.2
+p_drop = 0.5
 
 [raster_params]
 raster_size = [224, 224]
@@ -66,10 +66,10 @@ num_workers = 0
 
 [train_cvae_params]
 lr = 1e-3
-checkpoint_every_n_steps = 1000
-max_num_steps = 500
+checkpoint_every_n_steps = 200
+max_num_steps = 4001
 
 [train_extractor_params]
 lr = 1e-3
-checkpoint_every_n_steps = 1000
-max_num_steps = 200
+checkpoint_every_n_steps = 200
+max_num_steps = 2001
