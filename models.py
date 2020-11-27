@@ -32,7 +32,6 @@ class Embeddings(nn.Module):
 
         self.embeddings = nn.Sequential(
             nn.Linear(in_features=self.backbone_n_out, out_features=self.n_head),
-            nn.BatchNorm1d(num_features=self.n_head),
             nn.ReLU(),
             nn.Linear(self.n_head, self.emb_dim)
         )
