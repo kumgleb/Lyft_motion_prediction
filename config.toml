@@ -1,0 +1,75 @@
+mode = 'train_sample'
+
+models_checkpoint_path = 'None'
+
+min_frame_future = 50
+
+[model_params]
+history_num_frames = 10
+history_step_size = 1
+history_delta_time = 0.1
+future_num_frames = 50
+future_step_size = 1
+future_delta_time = 0.1
+
+[embed_params]
+n_head = 1028
+emb_dim = 512
+
+[cvae_cfg]
+latent_dim = 512
+encoder_layers = [512, 512, 256]
+decoder_layers = [256, 512, 512]
+vlb_loss = 'KLD'
+betta = 0.1
+
+[extractor_cfg]
+n_samples = 100
+n_channels = 128
+n_head = 256
+p_drop = 0.2
+
+[raster_params]
+raster_size = [224, 224]
+pixel_size = [0.5, 0.5]
+ego_center = [0.25, 0.5]
+map_type = 'py_semantic'
+satellite_map_key = 'aerial_map/aerial_map.png'
+semantic_map_key = 'semantic_map/semantic_map.pb'
+dataset_meta_key = 'meta.json'
+filter_agents_threshold = 0.5
+disable_traffic_light_faces = false
+
+[sample_data_loader]
+key = "scenes/sample.zarr"
+batch_size = 32
+shuffle = true
+num_workers = 0
+
+[train_data_loader]
+key = "scenes/train.zarr"
+batch_size = 64
+shuffle = true
+num_workers = 0
+
+[val_data_loader]
+key = "scenes/validate_chopped_100/validate.zarr"
+batch_size = 128
+shuffle = false
+num_workers = 0
+
+[test_data_loader]
+key = "scenes/test.zarr"
+batch_size = 64
+shuffle = false
+num_workers = 0
+
+[train_cvae_params]
+lr = 1e-3
+checkpoint_every_n_steps = 1000
+max_num_steps = 500
+
+[train_extractor_params]
+lr = 1e-3
+checkpoint_every_n_steps = 1000
+max_num_steps = 200
