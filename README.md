@@ -19,6 +19,7 @@ Complete model consist of two stages:
 Also maximum mean discrepancy loss is supported and can be used to train the model.
 
 2. Extractor model based on CVAE model and extract multi-modal prediction for given future trajectories probabilities:
+<br/><br/>
 ![](images/Extractor_model.png)
 Ground truth assumed to be a mixture of multi-demensional independent Normal distributions over time. <br>
 **Loss function:** <br>
