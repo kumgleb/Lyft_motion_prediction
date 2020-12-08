@@ -6,7 +6,7 @@ Complete model utilizes BEV-semantic map of the frame with agents histories and 
 
 ## Examples:
 Training and prediciton of models provided with examples in notebooks:
- * [Training example.](https://github.com/kumgleb/Lyft_motion_prediction/blob/main/examples/train_example.ipynb)
+ * [Train example.](https://github.com/kumgleb/Lyft_motion_prediction/blob/main/examples/train_example.ipynb)
  * [Prediction example](https://github.com/kumgleb/Lyft_motion_prediction/blob/main/examples/prediction_example.ipynb)
 
 ## Models:
