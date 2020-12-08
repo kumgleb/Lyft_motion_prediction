@@ -21,7 +21,7 @@ Also maximum mean discrepancy loss is supported and can be used to train the mod
 2. Extractor model based on CVAE model and extract multi-modal prediction for given future trajectories probabilities:
 ![](images/Extractor_model.png)
 Ground truth assumed to be a mixture of multi-demensional independent Normal distributions over time. <br>
-**Loss function:** 
+**Loss function:** <br>
 ![](images/loss_extractor.PNG)
 
 ## Dataset:
