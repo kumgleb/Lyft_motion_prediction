@@ -1,3 +1,4 @@
+import numpy as np
 import matplotlib.pyplot as plt
 
 
@@ -6,7 +7,7 @@ def plot_cvae_predictions(data_batch, train_dataset, trajectories,
                           n_samples_to_plot=10):
 
     n_samples_to_plot = min(n_samples_to_plot, trajectories.shape[2])
-    samples_idx = iter(np.random.permutation(list(range(trajectories_batch.shape[0]))))
+    samples_idx = iter(np.random.permutation(list(range(trajectories.shape[0]))))
 
     fig, ax = plt.subplots(2, 3, figsize=(22, 10))
 
@@ -43,7 +44,7 @@ def plot_extr_predictions(data_batch, train_dataset, trajectories,
     confs = [0.7, 0.2, 0.1] # TBD change to config
     sizes = [20, 15, 10]
     n_samples_to_plot = min(n_samples_to_plot, trajectories.shape[2])
-    samples_idx = iter(np.random.permutation(list(range(trajectories_batch.shape[0]))))
+    samples_idx = iter(np.random.permutation(list(range(trajectories.shape[0]))))
 
     fig, ax = plt.subplots(2, 3, figsize=(22, 10))
 

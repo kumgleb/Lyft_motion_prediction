@@ -228,7 +228,7 @@ class TrajectoriesPredictor(nn.Module):
         bs = context.shape[0]
         samples = torch.zeros((bs, 1, n_samples, 2 * n_time_steps))
         for i in range(n_samples):
-            z = torch.randn(bs, cfg['cvae_cfg']['latent_dim']).to(self.device)
+            z = torch.randn(bs, self.cfg['cvae_cfg']['latent_dim']).to(self.device)
             with torch.no_grad():
                 trajectories = self.cvae_model.inference(z, context)
             samples[:, 0, i, :] = trajectories
