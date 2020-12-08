@@ -11,15 +11,16 @@ Training and prediciton of models provided with examples in notebooks:
 
 ## Models:
 Complete model consist of two stages:
-* CVAE-based model that learns a distribution P(trajectory | frame, history)
+1. CVAE-based model that learns a distribution P(trajectory | frame, history)
 ![](images/CVAE_model.png)
-Loss function: <br>
+**Loss function:** <br>
 ![](images/loss_cvae.PNG) <br>
 Also maximum mean discrepancy loss is supported and can be used to train the model.
-* Extractor model based on CVAE model and extract multi-modal prediction for given future trajectories probabilities:
+<br>
+2. Extractor model based on CVAE model and extract multi-modal prediction for given future trajectories probabilities:
 ![](images/Extractor_model.png)
 Ground truth assumed to be a mixture of multi-demensional independent Normal distributions over time.
-Loss function: <br>
+**Loss function:** <br>
 ![](images/loss_extractor.PNG)
 
 ## Dataset:
