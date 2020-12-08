@@ -4,8 +4,8 @@ import numpy as np
 from tqdm import tqdm
 from IPython.display import clear_output
 
-from utils import cvae_training_monitor
-from train.losses import loss_KLD, loss_MMD, compute_kernel, compute_mmd
+from lyft_motion_prediction.train.train_monitor import cvae_training_monitor
+from lyft_motion_prediction.train.losses import loss_KLD, loss_MMD, compute_kernel, compute_mmd
 
 
 def forward_cvae(data, model, device, cfg):

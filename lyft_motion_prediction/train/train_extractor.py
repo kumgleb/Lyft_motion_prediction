@@ -4,9 +4,9 @@ import numpy as np
 from tqdm import tqdm
 from IPython.display import clear_output
 
-from utils import extractor_training_monitor
-from train.train_utils import sample_trajectories_batch
-from train.losses import neg_multi_log_likelihood_batch
+from lyft_motion_prediction.train.train_monitor import extractor_training_monitor
+from lyft_motion_prediction.train.train_utils import sample_trajectories_batch
+from lyft_motion_prediction.train.losses import neg_multi_log_likelihood_batch
 
 
 def forward_extractor(cvae_model, extractor_model, data, device, criterion, confs, cfg):

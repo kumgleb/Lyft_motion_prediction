@@ -207,3 +207,35 @@ class TrajectoriesExtractor(nn.Module):
         tr = torch.cat((tr_1, tr_2, tr_3), dim=1)
         tr = tr.view(-1, 3, 50, 2)
         return tr
+
+
+class TrajectoriesPredictor(nn.Module):
+    def __init__(self, cvae_model, extractor_model, cfg, device):
+        super().__init__()
+        self.cvae_model = cvae_model
+        self.extractor_model = extractor_model
+        self.cfg = cfg
+        self.device = device
+
+    def sample_trajectories_batch(self, context):
+        """
+        Samples trajectories form CVAE given context.
+        Returns:
+            samples (Tensor): batch of samples given context, shape: [bs, 1, n_samples, 2* n_time_steps].
+        """
+        n_samples = self.cfg['extractor_cfg']['n_samples']
+        n_time_steps = self.cfg['model_params']['future_num_frames']
+        bs = context.shape[0]
+        samples = torch.zeros((bs, 1, n_samples, 2 * n_time_steps))
+        for i in range(n_samples):
+            z = torch.randn(bs, cfg['cvae_cfg']['latent_dim']).to(self.device)
+            with torch.no_grad():
+                trajectories = self.cvae_model.inference(z, context)
+            samples[:, 0, i, :] = trajectories
+        return samples
+
+    def forward(self, x):
+        context = x['image'].to(self.device)
+        trajectories = self.sample_trajectories_batch(context).to(self.device)
+        predicitons = self.extractor_model(trajectories)
+        return predicitons
