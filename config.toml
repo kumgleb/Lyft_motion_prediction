@@ -1,6 +1,6 @@
 mode = 'train_sample'
 
-models_checkpoint_path = '/gdrive/My Drive/Colab Notebooks/Competitions/Lyft Motion Prediction/models_pytorch/models'
+models_checkpoint_path = 'PATH_TO_STORE_CHECKOINTS'
 
 min_frame_future = 50
 
