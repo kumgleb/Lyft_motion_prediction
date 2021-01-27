@@ -13,7 +13,7 @@ Training and prediciton of models with examples are provided in the notebooks:
 ## Models:
 The complete model consists of two stages:
 1. CVAE-based model that learns a distribution P(trajectory | frame, history)
-![](images/CVAE_model.png)
+![](images/Arcitecture.png)
 **Loss function:** <br>
 ![](images/loss_cvae.PNG) <br>
 Also maximum mean discrepancy loss is supported and can be used to train the model.
